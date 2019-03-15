@@ -2,7 +2,6 @@
 
 
 #include <iostream>
-#include <iostream>
 #include <conio.h>
 #include <cstring>
 #include <windows.h>
@@ -154,13 +153,13 @@ void showBoard(){	// draw Board
 		gotoxy(0, i);
 		for (int j = 0; j < COL; j++){
 			if (board[i][j] == 3){		//if it is the wall
-				cout << "¡à";
+				cout << "Â¡Ã ";
 			}
 			else if (board[i][j] == 1){	//if it is the floor
-				cout << "¢É";
+				cout << "Â¢Ã‰";
 			}
 			else{
-				cout << "¡¡";			//blank
+				cout << "Â¡Â¡";			//blank
 			}
 		}
 	}
@@ -171,7 +170,7 @@ void Blocks::draw_block(){
 		for (int j = 0; j < 4; j++){
 			if (block[shape][rotation][i][j] == 1){		//only 1 (the Block shape), in Block array
 				gotoxy(cp_x + i, cp_y + j);
-				cout << "¡á";							//draw
+				cout << "Â¡Ã¡";							//draw
 			}
 		}
 		cout << endl;
@@ -183,7 +182,7 @@ void Blocks::erase_block(){
 		for (int j = 0; j < 4; j++){
 			if (block[shape][rotation][i][j] == 1){		//only 1 (the Block shape), in Block array
 				gotoxy(cp_x + i, cp_y + j);
-				cout << "¡¡";							//erase
+				cout << "Â¡Â¡";							//erase
 			}
 		}
 		cout << endl;
