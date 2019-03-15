@@ -1,7 +1,9 @@
-# SHDIAN
+# C
 school project, beginner
+Use C, C++ language
 
-school program
+2013~2014
+
 It is based on a visual studio.
 Each is a different program.
 
