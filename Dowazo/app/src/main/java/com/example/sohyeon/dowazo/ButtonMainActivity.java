@@ -44,8 +44,8 @@ import static com.example.sohyeon.dowazo.R.string.protector;
 public class ButtonMainActivity extends AppCompatActivity implements View.OnClickListener {
     private int person;
     Button btnWidget;
-    public static String ambulance = "01050668676";   //119 대신 테스트용 번호
-    public static String police = "01055025764";      //112 대신 테스트용 번호
+    public static String ambulance = "01012345678";   //NOT 119(AMBULANCE), JUST FOR TESTING, IF YOU WANT TO TEST, USE YOUR NUMBER
+    public static String police = "01098765432";      //NOT 112(POLICE), JUST FOR TESTING, IF YOU WANT TO TEST, USE YOUR NUMBER
     public static String numberProtector="";
     BroadcastReceiver receiver;
 
