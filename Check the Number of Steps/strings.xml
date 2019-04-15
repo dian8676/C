@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">만보기</string>
-
-    <string name="initialize">초기화</string>
-    <string name="start">목표시작</string>
-    <string name="hint">목표 수를 입력하세요.</string>
-    <string name ="goal">목표</string>
-</resources>
