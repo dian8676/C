@@ -1,0 +1,273 @@
+var arrKor = Array(repeating: 0, count: 10)
+
+var arrEng = Array(repeating: 0, count: 10)
+
+var arrMat = Array(repeating: 0, count: 10)
+
+ 
+
+print("1반 성적 처리 프로그램(1반 정원 10명, 각 100점 만점)\\n")
+
+ 
+
+repeat{
+
+    
+
+    print("1. 국어성적 입력")
+
+    print("2. 영어성적 입력")
+
+    print("3. 수학성적 입력")
+
+    print("4. 각 과목의 평균")
+
+    print("5. 각 과목의 최고점")
+
+    print("6. 각 과목의 최저점")
+
+    print("7. 각 과목의 최고 점수, 해당 학생 번호")
+
+    print("8. 각 과목의 점수 오름차순으로")
+
+    print("0. 종료")
+
+    
+
+    print("입력 : ",terminator : "")
+
+    let input = readLine()!
+
+    let number = Int(input)!
+
+    
+
+    if number == 0{
+
+        print("종료합니다.")
+
+        break
+
+    }
+
+    
+
+    func inputNum(_ i:Int) -> Int{
+
+        print("\\(i+1)번 : ",terminator : "")
+
+        let tmp = readLine()!
+
+        var num = Int(tmp)!
+
+        if (num < 0) || (num > 100){
+
+            print("제대로 된 점수가 아닙니다. 다시 입력하세요.")
+
+            num = inputNum(i)
+
+        }
+
+        return num
+
+    }
+
+    func max(_ arr:[Int]) -> Int{
+
+        var max = arr[0]
+
+        for i in arr{
+
+            if max < i{
+
+                max = i
+
+            }
+
+        }
+
+        return max
+
+    }
+
+    
+
+    switch number{
+
+    case 1:
+
+        print("국어 성적 입력")
+
+        for i in 0...9{
+
+            arrKor[i] = inputNum(i)
+
+        }
+
+        
+
+    case 2:
+
+        print("영어 성적 입력")
+
+        for i in 0...9{
+
+            arrEng[i] = inputNum(i)
+
+        }
+
+    case 3:
+
+        print("수학 성적 입력")
+
+        for i in 0...9{
+
+            arrMat[i] = inputNum(i)
+
+        }
+
+    case 4:
+
+        print("각 과목의 평균 출력")
+
+        func avg(_ arr:[Int]) -> Double {
+
+            var sum = 0
+
+            for i in arr{
+
+                sum += i
+
+            }
+
+            return Double(sum)/Double(arr.count)
+
+        }
+
+        
+
+        print("국어 : ", avg(arrKor))
+
+        print("영어 : ", avg(arrEng))
+
+        print("수학 : ", avg(arrMat))
+
+        
+
+    case 5:
+
+        print("각 과목의 최고점 출력")
+
+        print("국어 : ", max(arrKor))
+
+        print("영어 : ", max(arrEng))
+
+        print("수학 : ", max(arrMat))
+
+    case 6:
+
+        print("각 과목의 최저점 출력")
+
+        func min(_ arr:[Int]) -> Int{
+
+            var min = arr[0]
+
+            for i in arr{
+
+                if min > i{
+
+                    min = i
+
+                }
+
+            }
+
+            return min
+
+        }
+
+        print("국어 : ", min(arrKor))
+
+        print("영어 : ", min(arrEng))
+
+        print("수학 : ", min(arrMat))
+
+    case 7:
+
+        print("각 과목의 최고 점수와 학생 번호 출력")
+
+        func maxNstd(_ arr:[Int]){
+
+            let maxNum = max(arr)
+
+            for i in 0..<arr.count{
+
+                if arr[i] == maxNum{
+
+                    print("\\(i+1)번", terminator : " ")
+
+                }
+
+            }
+
+            print(" - \\(maxNum)점")
+
+        }
+
+        print("국어 : ",terminator : "")
+
+        maxNstd(arrKor)
+
+        print("영어 : ",terminator : "")
+
+        maxNstd(arrEng)
+
+        print("수학 : ",terminator : "")
+
+        maxNstd(arrMat)
+
+    case 8:
+
+        print("각 과목 점수를 기준으로 오름차순 정렬")
+
+        
+
+        func printArr(_ arr:[Int]){
+
+            for x in arr.sorted(){
+
+                print(x,terminator:" ")
+
+            }
+
+            print("")
+
+        }
+
+        print("국어 : ",terminator:"")
+
+        printArr(arrKor)
+
+        print("영어 : ",terminator:"")
+
+        printArr(arrEng)
+
+        print("수학 : ",terminator:"")
+
+        printArr(arrMat)
+
+       
+
+    default:
+
+        print("다시 입력해주세요.")
+
+    }
+
+    
+
+    print("\\n")
+
+    
+
+}while(true)

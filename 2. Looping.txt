@@ -1,0 +1,243 @@
+//2
+
+print("제곱하는 수 : ", terminator: "")
+
+let readNum = readLine()!
+
+let num = Int(readNum)!
+
+ 
+
+print("제곱할 횟수 : ", terminator: "")
+
+let readCount = readLine()!
+
+let count = Int(readCount)!
+
+ 
+
+for i in 1...count{
+
+    var result = num
+
+    print(num, terminator : " ")
+
+    var j = 1;
+
+    while (j<i) {
+
+        print(" * ", num, terminator: " ")
+
+        result *= num
+
+        j += 1;
+
+    }
+
+    print(" = ",result)
+
+}
+
+ 
+
+ 
+
+ 
+
+//8
+
+let input = readLine()
+
+if let input = input {
+
+    let inputNumberCharacters = input.characters.split(separator: " ")
+
+    let numbers = inputNumberCharacters.map({ Int(String(\$0))! })
+
+    
+
+    let end = numbers[0]
+
+    let col = numbers[1]
+
+    var k = 2
+
+    var enter = k
+
+    
+
+    while (k <= end){
+
+        for j in 1...9{
+
+            enter = k+col
+
+            if(enter > end){
+
+                enter = end + 1
+
+            }
+
+            for i in k..<enter{
+
+                print("\\(i) * \\(j) = \\(i*j)", terminator : " ")
+
+            }
+
+            print (" ")
+
+        }
+
+        print (" ")
+
+        k += col
+
+    }
+
+}
+
+ 
+
+ 
+
+ 
+
+//14
+
+for i in 2...100{
+
+    var j = i - 1
+
+    while (j>1){
+
+        if( i % j == 0 ){
+
+            break
+
+        }
+
+        j -= 1;
+
+    }
+
+    if(j == 1){
+
+        print(i, terminator : " ")
+
+    }
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+//19
+
+print("초기 숫자 입력 (시작...끝) : ",terminator : "")
+
+let input = readLine()
+
+if let input = input {
+
+    let search = "..."
+
+    let range : Range<String.Index> = input.range(of: search)!
+
+    let location : Int = input.distance(from: input.startIndex, to: range.lowerBound)
+
+    
+
+    let tmp = input.index(input.startIndex, offsetBy: location)
+
+    let start = Int(input[..<tmp]) ?? 0
+
+    
+
+    let tmp2 = input.index(input.startIndex, offsetBy: location+3)
+
+    let end = Int(input[tmp2...]) ?? 0
+
+    
+
+    
+
+    print("로또 산출 숫자 개수 : ", terminator : "")
+
+    let inputCount = readLine()!
+
+    let count = Int(inputCount)!
+
+    
+
+    print("만들 로또 번호 개수 : ", terminator : "")
+
+    let inputNum = readLine()!
+
+    let num = Int(inputNum)!
+
+    
+
+    print("로또 추천 숫자는 다음과 같습니다.")
+
+    var arr = Array<Int>()
+
+    
+
+    for _ in 0...Int(end-start){
+
+        arr.append(0)
+
+    }
+
+    var randomNO:Int = 0
+
+    
+
+    for _ in 0..<num{
+
+        for _ in 0..<count{
+
+            while (true) {
+
+                var breakCount = 0
+
+                randomNO = Int(arc4random_uniform(UInt32(end-start+1)))
+
+                if(arr[randomNO] == 0){
+
+                    print(randomNO+start, terminator: " ")
+
+                    arr[randomNO] = 1
+
+                    breakCount += 1
+
+                    break
+
+                }
+
+                if(breakCount>count){
+
+                    break
+
+                }
+
+            }
+
+        }
+
+        for i in 0...Int(end-start){
+
+            arr[i] = 0
+
+        }
+
+        print(" ")
+
+    }
+
+}
