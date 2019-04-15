@@ -1,6 +1,0 @@
-# IOS
-
-IOS projects for school
-USING XCODE
-
-THE NOTES WERE WRITTEN IN KOREAN
