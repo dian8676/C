@@ -1,0 +1,85 @@
+print("방 개수 입력 : ",terminator : "")
+
+let input = readLine()!
+
+let num = Int(input)!
+
+ 
+
+var arr = Array(repeating : Array<Int>(), count : num)
+
+ 
+
+for i in 1...num{
+
+    repeat{
+
+        print("\\(i)번 방의 온도를 입력하세요 (-1 입력 시 종료) : ", terminator : "")
+
+        let inputTemp = readLine()!
+
+        let temperature = Int(inputTemp)!
+
+        if temperature == -1 {
+
+            break
+
+        }
+
+        arr[i-1].append(temperature)
+
+    }while(true)
+
+    print("")
+
+}
+
+ 
+
+print("방번호 온도개수\\t 온도")
+
+var totalSum = 0
+
+var count = 0
+
+ 
+
+for i in 0..<num{
+
+    var sum = 0
+
+    var average:Float = 0
+
+    let arrCount = arr[i].count
+
+    count += arrCount
+
+    print(" \\(i+1)\\t",arrCount,"\\t\\t ",terminator : "")
+
+    for j in arr[i]{
+
+        print(j, terminator : " ")
+
+        sum += j
+
+    }
+
+    if arrCount != 0{
+
+        average = Float(sum)/Float(arrCount)
+
+        print(" = 평균 온도 : ",average)
+
+    }else{  // 입력된 온도가 없을 경우
+
+        print("입력된 온도 없음")
+
+    }
+
+    totalSum += sum
+
+}
+
+print("평균 개수 : ", Float(count)/Float(num))
+
+print("총 평균 온도 : ",Float(totalSum)/Float(count))
